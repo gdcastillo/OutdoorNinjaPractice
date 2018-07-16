@@ -12,15 +12,20 @@ class SearchBar extends Component{    //gives SearchBar functionality from React
     //so onChange is if anything changes; this is a protected statement so look up more on it if you need to
     render() {
         return (
-        <div>
+        <div className="search-bar">
             <input
             //the value of the input is equal to the state
-            value = {this.state.term} 
+                value = {this.state.term} 
             //the state changes here
-            onChange = {(event) => this.setState({term: event.target.value})}/>
+                onChange = {(event) => this.onInputChange(event.target.value)}/>
         </div>
         )
         //use this.setState to change the state outside of the constructor
+    }
+
+    onInputChange(term){
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 
     /*onInputChange(event){           //this is an event handler     

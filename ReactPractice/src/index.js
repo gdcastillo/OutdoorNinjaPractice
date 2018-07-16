@@ -22,18 +22,22 @@ class App extends Component{    //class
             videos: [],
             selectedVideo: null
         }; //an array of videos
+        this.videoSearch('surfboards');
+    }
 
-        YTSearch({key: API_KEY, term: 'cute cats'}, (videos) => { this.setState({
-            videos: videos,
-            selectedVideo: videos[0]
-        });
-        //this.setState({videos:videos});
+    videoSearch(term){
+        YTSearch({key: API_KEY, term: term}, (videos) => { 
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });        
         });
     }
+
     render(){   //any time this re-renders, VideoList will get a new list of videos as well
         return(
             <div>
-                <SearchBar />
+                <SearchBar  onSearchTermChange = {term =>this.videoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList 
                     onVideoSelect = {selectedVideo => this.setState({selectedVideo}) }
