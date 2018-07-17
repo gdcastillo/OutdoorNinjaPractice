@@ -1,5 +1,5 @@
 //ALWAYS one component per file
-
+import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -35,9 +35,11 @@ class App extends Component{    //class
     }
 
     render(){   //any time this re-renders, VideoList will get a new list of videos as well
+        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300); 
+        //so the above is videoSearch(term) PLUS a 300 ms delay
         return(
             <div>
-                <SearchBar  onSearchTermChange = {term =>this.videoSearch(term)}/>
+                <SearchBar  onSearchTermChange = {videoSearch}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList 
                     onVideoSelect = {selectedVideo => this.setState({selectedVideo}) }
