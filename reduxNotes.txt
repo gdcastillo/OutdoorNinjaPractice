@@ -1,0 +1,15 @@
+State container: a collection of all the data inside the app (that's what redux is)
+
+Views controlled by react, data controlled by redux
+
+Knowing how to design your state is essential in Redux
+
+A reducer is a function that returns a piece of the application state
+	-an application can have many different "pieces of state"
+
+
+
+container: a react component that has a direct connection to the state (defined by redux)
+	-which component to make a container? 
+		-the whole app doesn't care about the book list or book detail, it just renders that to the page.
+		-bookList and bookDetail should be containers 
