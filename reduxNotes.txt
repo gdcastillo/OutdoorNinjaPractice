@@ -8,8 +8,32 @@ A reducer is a function that returns a piece of the application state
 	-an application can have many different "pieces of state"
 
 
+App state is not connected at all to component state
 
 container: a react component that has a direct connection to the state (defined by redux)
 	-which component to make a container? 
 		-the whole app doesn't care about the book list or book detail, it just renders that to the page.
 		-bookList and bookDetail should be containers 
+
+container vs component, good to know
+
+
+actions, action creators
+	-actions: most things starts as an event triggered by a user
+	-action creator: a function that returns an action; whenever a button is clicked, it'll call an action creator, which will return an object
+
+using a good amount of bootstrap
+
+using this. in a callback is wrong
+	-use bind(this) in the constructor to fix this
+
+middleware: a function that takes in an action and depending on the action's type/payload, it can let it pass through, manipulate it, stop it, console.log it, all kinds of stuff BEFORE it reaches the reducers
+	-they're like gatekeepers
+
+payload: optional property that goes along with actions that can contain some additional data that describes that particular action
+
+Lecture 59 bookmark, BERRY important
+
+I learned jsx :)
+i learned jquery, get requests :)
+I learned ajax requests :)
